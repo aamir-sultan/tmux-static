@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# vi: set ft=sh ts=4 sw=0 sts=-1 sr noet nosi tw=0 fdm=manual:
 
 set -o errexit
 
