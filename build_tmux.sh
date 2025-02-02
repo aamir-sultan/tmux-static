@@ -44,7 +44,7 @@ _libevent() {
 	tar zxf "libevent-${version[libevent]}-stable.tar.gz" --skip-old-files
 	pushd .
 	cd "libevent-${version[libevent]}-stable"
-	_cflags=("${_CFLAGS[@]}" -flto)
+	_cflags=("${_CFLAGS[@]}" -flto -fno-lto)
 	CC="${CC[*]}" CFLAGS="${_cflags[*]}" LDFLAGS="${_LDFLAGS[*]}" ./configure --prefix="${targetdir}" --disable-shared --disable-openssl
 	make -j $jobs
 	make install
@@ -60,7 +60,7 @@ _ncurses() {
 	pushd .
 	cd "ncurses-${version[ncurses]}"
 
-	_cflags=("${_CFLAGS[@]}" -flto)
+	_cflags=("${_CFLAGS[@]}" -flto -fno-lto)
 	CC="${CC[*]}" CFLAGS="${_cflags[*]}" LDFLAGS="${_LDFLAGS[*]}" ./configure --prefix "$targetdir" \
 		--with-default-terminfo-dir=/usr/share/terminfo \
 		--with-terminfo-dirs="/etc/terminfo:/lib/terminfo:/usr/share/terminfo" \
